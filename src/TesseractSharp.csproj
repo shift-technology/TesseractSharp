@@ -8,7 +8,7 @@
     <PackageIconUrl>https://avatars1.githubusercontent.com/u/7818092?s=64</PackageIconUrl>
     <Authors>Core team</Authors>
     <Description>.NET Wrapper for tessaract v5.0.0.20190623</Description>
-    <Version>1.1.1</Version>
+    <Version>1.1.2</Version>
   </PropertyGroup>
     
    <PropertyGroup>
