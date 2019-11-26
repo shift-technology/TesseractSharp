@@ -10,7 +10,7 @@ namespace TesseractSharp.Core
         private readonly FileStream _fs;
         public BurnAfterReadingFileStream(string path) { _fs = File.OpenRead(path); }
         public override bool CanRead => true;
-        public override bool CanSeek => false;
+        public override bool CanSeek => true;
         public override bool CanWrite => false;
         public override long Length => _fs.Length;
 
