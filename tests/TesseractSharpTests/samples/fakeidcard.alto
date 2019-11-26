@@ -16,58 +16,60 @@
 	<Layout>
 		<Page WIDTH="600" HEIGHT="350" PHYSICAL_IMG_NR="0" ID="page_0">
 			<PrintSpace HPOS="0" VPOS="0" WIDTH="600" HEIGHT="350">
-				<TextBlock ID="block_0" HPOS="0" VPOS="0" WIDTH="600" HEIGHT="350">
-					<TextLine ID="line_0" HPOS="0" VPOS="0" WIDTH="600" HEIGHT="57">
-						<String ID="string_0" HPOS="0" VPOS="0" WIDTH="600" HEIGHT="57" WC="0.95" CONTENT=" "/>
-					</TextLine>
-					<TextLine ID="line_1" HPOS="0" VPOS="57" WIDTH="600" HEIGHT="34">
-						<String ID="string_1" HPOS="0" VPOS="57" WIDTH="600" HEIGHT="34" WC="0.95" CONTENT="   "/>
-					</TextLine>
-					<TextLine ID="line_2" HPOS="0" VPOS="91" WIDTH="600" HEIGHT="75">
-						<String ID="string_2" HPOS="0" VPOS="91" WIDTH="352" HEIGHT="75" WC="0.95" CONTENT="  "/><SP WIDTH="193" VPOS="91" HPOS="352"/>
-						<String ID="string_3" HPOS="545" VPOS="91" WIDTH="55" HEIGHT="75" WC="0.95" CONTENT="  "/>
-					</TextLine>
-					<TextLine ID="line_3" HPOS="0" VPOS="276" WIDTH="600" HEIGHT="74">
-						<String ID="string_4" HPOS="0" VPOS="276" WIDTH="600" HEIGHT="74" WC="0.95" CONTENT="    "/><SP WIDTH="-4" VPOS="276" HPOS="600"/>
-						<String ID="string_5" HPOS="596" VPOS="276" WIDTH="4" HEIGHT="63" WC="0.95" CONTENT="  "/>
+				<TextBlock ID="block_0" HPOS="0" VPOS="0" WIDTH="600" HEIGHT="72">
+					<TextLine ID="line_0" HPOS="0" VPOS="0" WIDTH="600" HEIGHT="72">
+						<String ID="string_0" HPOS="0" VPOS="0" WIDTH="600" HEIGHT="72" WC="0.95" CONTENT="   "/>
 					</TextLine>
 				</TextBlock>
-				<TextBlock ID="block_1" HPOS="11" VPOS="33" WIDTH="573" HEIGHT="26">
-					<TextLine ID="line_4" HPOS="11" VPOS="33" WIDTH="573" HEIGHT="26">
-						<String ID="string_6" HPOS="11" VPOS="33" WIDTH="62" HEIGHT="20" WC="0.63" CONTENT="CARTE"/><SP WIDTH="-1" VPOS="33" HPOS="73"/>
-						<String ID="string_7" HPOS="72" VPOS="29" WIDTH="83" HEIGHT="34" WC="0.90" CONTENT="NATIONALE"/><SP WIDTH="0" VPOS="29" HPOS="155"/>
-						<String ID="string_8" HPOS="155" VPOS="29" WIDTH="84" HEIGHT="34" WC="0.81" CONTENT="D&#39;IDENTITÉ"/><SP WIDTH="1" VPOS="29" HPOS="239"/>
-						<String ID="string_9" HPOS="240" VPOS="35" WIDTH="22" HEIGHT="18" WC="0.68" CONTENT="N°:"/><SP WIDTH="13" VPOS="35" HPOS="262"/>
-						<String ID="string_10" HPOS="275" VPOS="33" WIDTH="141" HEIGHT="23" WC="0.90" CONTENT="67492827482"/><SP WIDTH="32" VPOS="33" HPOS="416"/>
-						<String ID="string_11" HPOS="448" VPOS="38" WIDTH="69" HEIGHT="21" WC="0.11" CONTENT="Nationals"/><SP WIDTH="5" VPOS="38" HPOS="517"/>
-						<String ID="string_12" HPOS="522" VPOS="44" WIDTH="62" HEIGHT="12" WC="0.44" CONTENT="Franaise"/>
+				<TextBlock ID="block_1" HPOS="24" VPOS="33" WIDTH="560" HEIGHT="26">
+					<TextLine ID="line_1" HPOS="24" VPOS="33" WIDTH="560" HEIGHT="26">
+						<String ID="string_1" HPOS="24" VPOS="33" WIDTH="49" HEIGHT="20" WC="0.54" CONTENT="CARTE"/><SP WIDTH="-2" VPOS="33" HPOS="73"/>
+						<String ID="string_2" HPOS="71" VPOS="29" WIDTH="85" HEIGHT="34" WC="0.93" CONTENT="NATIONALE"/><SP WIDTH="0" VPOS="29" HPOS="156"/>
+						<String ID="string_3" HPOS="156" VPOS="29" WIDTH="83" HEIGHT="34" WC="0.75" CONTENT="DIDENTITE"/><SP WIDTH="3" VPOS="29" HPOS="239"/>
+						<String ID="string_4" HPOS="242" VPOS="35" WIDTH="21" HEIGHT="18" WC="0.22" CONTENT="N*:"/><SP WIDTH="12" VPOS="35" HPOS="263"/>
+						<String ID="string_5" HPOS="275" VPOS="33" WIDTH="141" HEIGHT="23" WC="0.93" CONTENT="67492827482"/><SP WIDTH="32" VPOS="33" HPOS="416"/>
+						<String ID="string_6" HPOS="448" VPOS="38" WIDTH="69" HEIGHT="21" WC="0.57" CONTENT="Nationale"/><SP WIDTH="5" VPOS="38" HPOS="517"/>
+						<String ID="string_7" HPOS="522" VPOS="44" WIDTH="62" HEIGHT="12" WC="0.92" CONTENT="Française"/>
 					</TextLine>
 				</TextBlock>
-				<TextBlock ID="block_2" HPOS="196" VPOS="65" WIDTH="349" HEIGHT="93">
-					<TextLine ID="line_5" HPOS="196" VPOS="65" WIDTH="81" HEIGHT="16">
-						<String ID="string_13" HPOS="196" VPOS="69" WIDTH="36" HEIGHT="10" WC="0.76" CONTENT="Nom:"/><SP WIDTH="7" VPOS="69" HPOS="232"/>
-						<String ID="string_14" HPOS="239" VPOS="65" WIDTH="38" HEIGHT="16" WC="0.96" CONTENT="JOE"/>
+				<TextBlock ID="block_2" HPOS="187" VPOS="65" WIDTH="358" HEIGHT="97">
+					<TextLine ID="line_2" HPOS="196" VPOS="65" WIDTH="81" HEIGHT="16">
+						<String ID="string_8" HPOS="196" VPOS="61" WIDTH="36" HEIGHT="28" WC="0.67" CONTENT="Nom:"/><SP WIDTH="7" VPOS="61" HPOS="232"/>
+						<String ID="string_9" HPOS="239" VPOS="65" WIDTH="38" HEIGHT="16" WC="0.95" CONTENT="JOE"/>
 					</TextLine>
-					<TextLine ID="line_6" HPOS="196" VPOS="104" WIDTH="150" HEIGHT="26">
-						<String ID="string_15" HPOS="188" VPOS="92" WIDTH="77" HEIGHT="42" WC="0.46" CONTENT="Prénomte)"/><SP WIDTH="3" VPOS="92" HPOS="265"/>
-						<String ID="string_16" HPOS="268" VPOS="92" WIDTH="75" HEIGHT="42" WC="0.96" CONTENT="SAMPLE"/>
+					<TextLine ID="line_3" HPOS="196" VPOS="104" WIDTH="150" HEIGHT="22">
+						<String ID="string_10" HPOS="187" VPOS="100" WIDTH="78" HEIGHT="30" WC="0.55" CONTENT="Prénom(s)"/><SP WIDTH="4" VPOS="100" HPOS="265"/>
+						<String ID="string_11" HPOS="269" VPOS="100" WIDTH="77" HEIGHT="30" WC="0.96" CONTENT="SAMPLE"/>
 					</TextLine>
-					<TextLine ID="line_7" HPOS="352" VPOS="142" WIDTH="193" HEIGHT="16">
-						<String ID="string_17" HPOS="352" VPOS="146" WIDTH="57" HEIGHT="11" WC="0.0" CONTENT="Note):"/><SP WIDTH="8" VPOS="146" HPOS="409"/>
-						<String ID="string_18" HPOS="417" VPOS="142" WIDTH="128" HEIGHT="16" WC="0.74" CONTENT="12.02.1990"/>
-					</TextLine>
-				</TextBlock>
-				<TextBlock ID="block_3" HPOS="40" VPOS="282" WIDTH="519" HEIGHT="49">
-					<TextLine ID="line_8" HPOS="40" VPOS="282" WIDTH="518" HEIGHT="13">
-						<String ID="string_19" HPOS="40" VPOS="282" WIDTH="518" HEIGHT="13" WC="0.91" CONTENT="FAKE&lt;&lt;ID&lt;&lt;GENERATOR&lt;&lt;FOR&lt;&lt;ANDROID&lt;&lt;&lt;&lt;"/>
-					</TextLine>
-					<TextLine ID="line_9" HPOS="40" VPOS="314" WIDTH="519" HEIGHT="17">
-						<String ID="string_20" HPOS="40" VPOS="314" WIDTH="519" HEIGHT="17" WC="0.84" CONTENT="2348M35810451QW58240&lt;&lt;245801&lt;&lt;1239801"/>
+					<TextLine ID="line_4" HPOS="187" VPOS="127" WIDTH="358" HEIGHT="35">
+						<String ID="string_12" HPOS="187" VPOS="136" WIDTH="40" HEIGHT="26" WC="0.77" CONTENT="sexo"/><SP WIDTH="5" VPOS="136" HPOS="227"/>
+						<String ID="string_13" HPOS="232" VPOS="142" WIDTH="19" HEIGHT="16" WC="0.86" CONTENT=":M"/><SP WIDTH="63" VPOS="142" HPOS="251"/>
+						<String ID="string_14" HPOS="314" VPOS="127" WIDTH="8" HEIGHT="3" WC="0.62" CONTENT="&gt;"/><SP WIDTH="30" VPOS="127" HPOS="322"/>
+						<String ID="string_15" HPOS="352" VPOS="146" WIDTH="34" HEIGHT="11" WC="0.0" CONTENT="Noe)"/><SP WIDTH="2" VPOS="146" HPOS="386"/>
+						<String ID="string_16" HPOS="388" VPOS="138" WIDTH="21" HEIGHT="27" WC="0.22" CONTENT="le:"/><SP WIDTH="8" VPOS="138" HPOS="409"/>
+						<String ID="string_17" HPOS="417" VPOS="142" WIDTH="128" HEIGHT="16" WC="0.62" CONTENT="12.02.1990"/>
 					</TextLine>
 				</TextBlock>
-				<TextBlock ID="block_4" HPOS="11" VPOS="349" WIDTH="574" HEIGHT="1">
-					<TextLine ID="line_10" HPOS="11" VPOS="349" WIDTH="574" HEIGHT="1">
-						<String ID="string_21" HPOS="11" VPOS="349" WIDTH="574" HEIGHT="1" WC="0.95" CONTENT=" "/>
+				<TextBlock ID="block_3" HPOS="31" VPOS="208" WIDTH="517" HEIGHT="38">
+					<TextLine ID="line_5" HPOS="31" VPOS="208" WIDTH="517" HEIGHT="38">
+						<String ID="string_18" HPOS="31" VPOS="224" WIDTH="28" HEIGHT="22" WC="0.81" CONTENT="E"/><SP WIDTH="36" VPOS="224" HPOS="59"/>
+						<String ID="string_19" HPOS="95" VPOS="221" WIDTH="34" HEIGHT="21" WC="0.43" CONTENT="€"/><SP WIDTH="37" VPOS="221" HPOS="129"/>
+						<String ID="string_20" HPOS="166" VPOS="216" WIDTH="104" HEIGHT="30" WC="0.39" CONTENT="Vue"/><SP WIDTH="18" VPOS="216" HPOS="270"/>
+						<String ID="string_21" HPOS="288" VPOS="204" WIDTH="189" HEIGHT="54" WC="0.0" CONTENT="Sfocidom"/><SP WIDTH="4" VPOS="204" HPOS="477"/>
+						<String ID="string_22" HPOS="481" VPOS="204" WIDTH="48" HEIGHT="54" WC="0.0" CONTENT="plo"/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="block_4" HPOS="40" VPOS="282" WIDTH="519" HEIGHT="49">
+					<TextLine ID="line_6" HPOS="40" VPOS="282" WIDTH="518" HEIGHT="13">
+						<String ID="string_23" HPOS="40" VPOS="282" WIDTH="518" HEIGHT="13" WC="0.91" CONTENT="FAKE&lt;&lt;ID&lt;&lt;GENERATOR&lt;&lt;FOR&lt;&lt;ANDROID&lt;&lt;&lt;&lt;"/>
+					</TextLine>
+					<TextLine ID="line_7" HPOS="40" VPOS="314" WIDTH="519" HEIGHT="17">
+						<String ID="string_24" HPOS="40" VPOS="314" WIDTH="519" HEIGHT="17" WC="0.84" CONTENT="2348M35810451QW58240&lt;&lt;245801&lt;&lt;1239801"/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="block_5" HPOS="11" VPOS="349" WIDTH="574" HEIGHT="1">
+					<TextLine ID="line_8" HPOS="11" VPOS="349" WIDTH="574" HEIGHT="1">
+						<String ID="string_25" HPOS="11" VPOS="349" WIDTH="574" HEIGHT="1" WC="0.95" CONTENT=" "/>
 					</TextLine>
 				</TextBlock>
 			</PrintSpace>

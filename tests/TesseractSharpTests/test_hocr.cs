@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Reflection;
 using System.Text;
 using NUnit.Framework;
@@ -16,7 +15,7 @@ namespace TesseractSharpTests
             var assembly = Assembly.GetExecutingAssembly();
             var assemblyDirectory = Path.GetDirectoryName(assembly.Location);
 
-            var file = Path.Combine(assemblyDirectory, @"samples\fakeidcard.hocr");
+            var file = Path.Combine(assemblyDirectory, @"samples\sample.hocr");
 
             var sample = File.OpenText(file).ReadToEnd();
             sample = RemoveFileNameFromHocr(sample);

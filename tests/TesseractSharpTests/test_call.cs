@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Drawing;
+using System.IO;
 using System.Reflection;
 using NLog;
 using NUnit.Framework;
@@ -36,14 +37,23 @@ namespace TesseractSharpTests
         {
             var assembly = Assembly.GetExecutingAssembly();
             var assemblyDirectory = Path.GetDirectoryName(assembly.Location);
-            var input  = Path.Combine(assemblyDirectory, @"samples\fakeidcard.jpg");
+            var input  = Path.Combine(assemblyDirectory, @"samples\fakeidcard.bmp");
             var output = Path.Combine(assemblyDirectory, @"samples\fakeidcard.txt");
 
             using (var stream = Tesseract.ImageToTxt(input, languages: new [] {Language.English, Language.French}))
             using (var read = new StreamReader(stream))
             {
                 var computed = read.ReadToEnd().Replace("\r\n", "\n").Trim('\f', '\n');
-                var expected = File.OpenText(output).ReadToEnd().Replace("\r\n", "\n");
+                var expected = File.OpenText(output).ReadToEnd().Replace("\r\n", "\n").Trim('\f', '\n');
+                Assert.AreEqual(expected, computed);
+            }
+
+            var bitmap = (Bitmap)Image.FromFile(input);
+            using (var stream = Tesseract.ImageToTxt(bitmap, languages: new[] { Language.English, Language.French }))
+            using (var read = new StreamReader(stream))
+            {
+                var computed = read.ReadToEnd().Replace("\r\n", "\n").Trim('\f', '\n');
+                var expected = File.OpenText(output).ReadToEnd().Replace("\r\n", "\n").Trim('\f', '\n');
                 Assert.AreEqual(expected, computed);
             }
         }
@@ -53,10 +63,19 @@ namespace TesseractSharpTests
         {
             var assembly = Assembly.GetExecutingAssembly();
             var assemblyDirectory = Path.GetDirectoryName(assembly.Location);
-            var input = Path.Combine(assemblyDirectory, @"samples\fakeidcard.jpg");
+            var input = Path.Combine(assemblyDirectory, @"samples\fakeidcard.bmp");
             var output = Path.Combine(assemblyDirectory, @"samples\fakeidcard.tsv");
 
             using (var stream = Tesseract.ImageToTsv(input, languages: new[] { Language.English, Language.French }))
+            using (var read = new StreamReader(stream))
+            {
+                var computed = read.ReadToEnd().Replace("\r\n", "\n");
+                var expected = File.OpenText(output).ReadToEnd().Replace("\r\n", "\n");
+                Assert.AreEqual(expected, computed);
+            }
+
+            var bitmap = (Bitmap)Image.FromFile(input);
+            using (var stream = Tesseract.ImageToTsv(bitmap, languages: new[] { Language.English, Language.French }))
             using (var read = new StreamReader(stream))
             {
                 var computed = read.ReadToEnd().Replace("\r\n", "\n");
@@ -70,10 +89,21 @@ namespace TesseractSharpTests
         {
             var assembly = Assembly.GetExecutingAssembly();
             var assemblyDirectory = Path.GetDirectoryName(assembly.Location);
-            var input = Path.Combine(assemblyDirectory, @"samples\fakeidcard.jpg");
+            var input = Path.Combine(assemblyDirectory, @"samples\fakeidcard.bmp");
             var output = Path.Combine(assemblyDirectory, @"samples\fakeidcard.hocr");
 
             using (var stream = Tesseract.ImageToHocr(input, languages: new[] { Language.English, Language.French }))
+            using (var read = new StreamReader(stream))
+            {
+                var computed = read.ReadToEnd().Replace("\r\n", "\n");
+                var expected = File.OpenText(output).ReadToEnd().Replace("\r\n", "\n");
+                computed = RemoveFileNameFromHocr(computed);
+                expected = RemoveFileNameFromHocr(expected);
+                Assert.AreEqual(expected, computed);
+            }
+
+            var bitmap = (Bitmap)Image.FromFile(input);
+            using (var stream = Tesseract.ImageToHocr(bitmap, languages: new[] { Language.English, Language.French }))
             using (var read = new StreamReader(stream))
             {
                 var computed = read.ReadToEnd().Replace("\r\n", "\n");
@@ -89,10 +119,19 @@ namespace TesseractSharpTests
         {
             var assembly = Assembly.GetExecutingAssembly();
             var assemblyDirectory = Path.GetDirectoryName(assembly.Location);
-            var input = Path.Combine(assemblyDirectory, @"samples\fakeidcard.jpg");
+            var input = Path.Combine(assemblyDirectory, @"samples\fakeidcard.bmp");
             var output = Path.Combine(assemblyDirectory, @"samples\fakeidcard.alto");
 
             using (var stream = Tesseract.ImageToAlto(input, languages: new[] { Language.English, Language.French }))
+            using (var read = new StreamReader(stream))
+            {
+                var computed = read.ReadToEnd().Replace("\r\n", "\n");
+                var expected = File.OpenText(output).ReadToEnd().Replace("\r\n", "\n");
+                Assert.AreEqual(expected, computed);
+            }
+
+            var bitmap = (Bitmap)Image.FromFile(input);
+            using (var stream = Tesseract.ImageToAlto(bitmap, languages: new[] { Language.English, Language.French }))
             using (var read = new StreamReader(stream))
             {
                 var computed = read.ReadToEnd().Replace("\r\n", "\n");
@@ -106,7 +145,7 @@ namespace TesseractSharpTests
         {
             var assembly = Assembly.GetExecutingAssembly();
             var assemblyDirectory = Path.GetDirectoryName(assembly.Location);
-            var input = Path.Combine(assemblyDirectory, @"samples\fakeidcard.jpg");
+            var input = Path.Combine(assemblyDirectory, @"samples\fakeidcard.bmp");
             var output = Path.Combine(assemblyDirectory, @"samples\fakeidcard.pdf");
 
             using (var reader1 = new PdfReader(output))

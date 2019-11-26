@@ -19,10 +19,10 @@
     <None Update="samples\fakeidcard.alto">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="samples\fakeidcard.hocr">
+    <None Update="samples\fakeidcard.bmp">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="samples\fakeidcard.jpg">
+    <None Update="samples\fakeidcard.hocr">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="samples\fakeidcard.pdf">
@@ -33,6 +33,9 @@
     </None>
     <None Update="samples\fakeidcard.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="samples\sample.hocr">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 

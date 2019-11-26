@@ -51,6 +51,15 @@ namespace ConsoleApp
                 stream.CopyTo(writer);
             }
 
+            // Also works with a Bitmap !
+            var ouput5 = input.Replace(".jpg", ".pdf");
+            var bitmap = (Bitmap)Image.FromFile(input);
+            using (var stream = Tesseract.ImageToPdf(bitmap, languages: new[] { Language.English, Language.French }))
+            using (var writer = File.OpenWrite(ouput5))
+            {
+                stream.CopyTo(writer);
+            }
+
             var hocr = HOCRParser.Parse(File.OpenText(ouput4));
             foreach (var page in hocr.Pages)
             {
