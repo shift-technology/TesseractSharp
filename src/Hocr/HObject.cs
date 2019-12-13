@@ -46,29 +46,28 @@ namespace TesseractSharp.Hocr
         public int Height => Y1 - Y0;
     }
 
-    public abstract class HObject
+    public abstract class HTitle
     {
-        protected HObject(string id, string title)
+        protected HTitle(string value)
         {
-            Id = id;
-            Title = title;
+            Title = value;
 
             var rawFields = new Dictionary<string, string>();
 
-            var fields = title.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
+            var fields = value.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
 
             foreach (var field in fields)
             {
                 var subfields = field.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
                 if (subfields.Length == 0)
-                    throw new HOCRException($"Invalid title format {title}");
+                    throw new HOCRException($"Invalid title format {value}");
 
                 rawFields[subfields[0]] = string.Join(" ", subfields.Where(((s, i) => i > 0)));
 
                 if (subfields[0].Equals("bbox"))
                 {
                     if (subfields.Length != 5)
-                        throw new HOCRException($"Invalid title format {title}");
+                        throw new HOCRException($"Invalid title format {value}");
 
                     BBox = new BBox(
                         x0: int.Parse(subfields[1]),
@@ -79,7 +78,7 @@ namespace TesseractSharp.Hocr
                 else if (subfields[0].Equals("baseline "))
                 {
                     if (subfields.Length != 3)
-                        throw new HOCRException($"Invalid title format {title}");
+                        throw new HOCRException($"Invalid title format {value}");
 
                     Baseline = new Baseline(
                         slope: float.Parse(subfields[1]),
@@ -88,7 +87,7 @@ namespace TesseractSharp.Hocr
                 else if (subfields[0].Equals("x_wconf "))
                 {
                     if (subfields.Length != 2)
-                        throw new HOCRException($"Invalid title format {title}");
+                        throw new HOCRException($"Invalid title format {value}");
 
                     WConf = new WConf(confidence: float.Parse(subfields[1]));
                 }
@@ -97,29 +96,47 @@ namespace TesseractSharp.Hocr
             Fields = rawFields;
         }
 
-        public string Id { get; }
         public string Title { get; }
-
         public IReadOnlyDictionary<string, string> Fields { get; }
-
         public BBox BBox { get; }
         public Baseline Baseline { get; }
         public WConf WConf { get; }
+    }
 
+    public abstract class HObject : HTitle
+    {
+        public string Id { get; }
+
+        protected HObject(string id, string title) : base(title)
+        {
+            Id = id;
+        }
+    }
+
+    public class HCInfo : HTitle
+    {
+        public HCInfo(string title, string value) : base(title)
+        {
+            Value = value;
+        }
+        
+        public string Value { get; }
     }
 
     public class HWord : HObject
     {
-        public HWord(string id, string title, string lang, string dir, string value) : base(id, title)
+        public HWord(string id, string title, string lang, string dir, string value, IEnumerable<HCInfo> hCInfos = null) : base(id, title)
         {
             Lang = lang;
             Dir = dir;
-            Value = value;
+            CInfos = hCInfos?.ToArray() ?? new HCInfo[0];
+            Value = hCInfos == null ? value : string.Join("", CInfos.Select(i => i.Value));
         }
 
         public string Lang { get; }
         public string Dir { get; }
         public string Value { get; }
+        public HCInfo[] CInfos { get; }
     }
 
     public class HLine : HObject

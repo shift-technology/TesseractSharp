@@ -59,7 +59,7 @@ namespace TesseractSharpTests
                                                         "bbox 0 0 600 57; x_wconf 95",
                                                         "",
                                                         "",
-                                                        " "), 
+                                                        ""), 
                                                 }),
                                             new HLine(
                                                 "line_1_2",
@@ -71,7 +71,7 @@ namespace TesseractSharpTests
                                                         "bbox 0 57 600 91; x_wconf 95",
                                                         "",
                                                         "",
-                                                        "   "),
+                                                        ""),
 
                                                 }),
                                             new HLine(
@@ -84,13 +84,13 @@ namespace TesseractSharpTests
                                                         "bbox 0 91 352 166; x_wconf 95",
                                                         "",
                                                         "",
-                                                        "  "),
+                                                        ""),
                                                     new HWord(
                                                         "word_1_4",
                                                         "bbox 545 91 600 166; x_wconf 95",
                                                         "",
                                                         "",
-                                                        "  "),
+                                                        ""),
                                                 }),
                                             new HLine(
                                                 "line_1_4",
@@ -102,13 +102,13 @@ namespace TesseractSharpTests
                                                         "bbox 0 276 600 350; x_wconf 95",
                                                         "",
                                                         "",
-                                                        "    "),
+                                                        ""),
                                                     new HWord(
                                                         "word_1_6",
                                                         "bbox 596 276 600 339; x_wconf 95",
                                                         "",
                                                         "",
-                                                        "  "),
+                                                        ""),
                                                 }),
                                         }),
                                 }),
@@ -214,7 +214,7 @@ namespace TesseractSharpTests
                                                         "bbox 188 92 265 134; x_wconf 46",
                                                         "fra",
                                                         "",
-                                                        "Prénomte"),
+                                                        "Prénomte)"),
                                                     new HWord(
                                                         "word_1_17",
                                                         "bbox 268 92 343 134; x_wconf 96",
@@ -303,7 +303,7 @@ namespace TesseractSharpTests
                                                         "bbox 11 349 585 350; x_wconf 95",
                                                         "",
                                                         "",
-                                                        " "),
+                                                        ""),
                                                 }),
 
                                         }),
@@ -314,5 +314,79 @@ namespace TesseractSharpTests
 
             Assert.IsTrue(hDocumentComparer.Equals(expected, computed));
         }
+
+        [Test]
+        public void TestParser2()
+        {
+            var assembly = Assembly.GetExecutingAssembly();
+            var assemblyDirectory = Path.GetDirectoryName(assembly.Location);
+
+            var file = Path.Combine(assemblyDirectory, @"samples\sample2.hocr");
+
+            var sample = File.OpenText(file).ReadToEnd();
+            sample = RemoveFileNameFromHocr(sample);
+
+            HDocument computed;
+            using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(sample)))
+            using (var reader = new StreamReader(stream))
+            {
+                computed = HOCRParser.Parse(reader);
+            }
+
+            var hDocumentComparer = HDocumentComparer.Instance;
+
+            var expected = new HDocument(
+                new[]
+                {
+                    new HPage(
+                        "page_1",
+                        "image \"\"; bbox 0 0 600 350; ppageno 0",
+                        new []
+                        {
+                            new HCarea(
+                                "block_1_1",
+                                "bbox 0 0 600 72",
+                                new []
+                                {
+                                    new HPar(
+                                        "par_1_1",
+                                        "bbox 0 0 600 72",
+                                        "eng",
+                                        "",
+                                        new []
+                                        {
+                                            new HLine(
+                                                "line_1_1",
+                                                "bbox 0 0 600 72; baseline 0 0; x_size 97.333336; x_descenders 24.333334; x_ascenders 24.333334",
+                                                new []
+                                                {
+                                                    new HWord(
+                                                        "word_1_1",
+                                                        "bbox 0 0 600 72; x_wconf 95",
+                                                        "",
+                                                        "",
+                                                        value: null,
+                                                        hCInfos: new []
+                                                        {
+                                                            new HCInfo(
+                                                                title:"x_bboxes 0 57 196 72; x_conf 95",
+                                                                value: "A"),
+                                                            new HCInfo(
+                                                                title:"x_bboxes 0 0 600 57; x_conf 95",
+                                                                value: "B"),
+                                                            new HCInfo(
+                                                                title:"x_bboxes 277 57 600 72; x_conf 95",
+                                                                value: "C"),
+                                                        }),
+                                                }),
+                                        }),
+                                }),
+                        }
+                    ),
+                });
+
+            Assert.IsTrue(hDocumentComparer.Equals(expected, computed));
+        }
     }
+
 }

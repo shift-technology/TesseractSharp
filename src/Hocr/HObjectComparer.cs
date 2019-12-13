@@ -2,6 +2,31 @@
 
 namespace TesseractSharp.Hocr
 {
+    public class HTitleComparer : EqualityComparer<HTitle>
+    {
+        public static HTitleComparer Instance { get; } = new HTitleComparer();
+
+        public override bool Equals(HTitle x, HTitle y)
+        {
+            if (x == null && y == null)
+                return true;
+            if (x != null && y == null)
+                return false;
+            if (x == null)
+                return false;
+
+            if (!x.Title.Equals(y.Title))
+                return false;
+
+            return true;
+        }
+
+        public override int GetHashCode(HTitle obj)
+        {
+            return obj.Title.GetHashCode();
+        }
+    }
+
     public class HObjectComparer : EqualityComparer<HObject>
     {
         public static HObjectComparer Instance { get; } = new HObjectComparer();
@@ -15,10 +40,12 @@ namespace TesseractSharp.Hocr
             if (x == null)
                 return false;
 
-            if (!x.Id.Equals(y.Id))
+            var hTitleComparer = HTitleComparer.Instance;
+
+            if (!hTitleComparer.Equals(x, y))
                 return false;
 
-            if (!x.Title.Equals(y.Title))
+            if (!x.Id.Equals(y.Id))
                 return false;
 
             return true;
@@ -27,6 +54,44 @@ namespace TesseractSharp.Hocr
         public override int GetHashCode(HObject obj)
         {
             return obj.Id.GetHashCode() ^ obj.Title.GetHashCode();
+        }
+    }
+
+    public class HCInfoComparer : EqualityComparer<HCInfo>
+    {
+        public static HCInfoComparer Instance { get; } = new HCInfoComparer();
+
+        public override bool Equals(HCInfo x, HCInfo y)
+        {
+            if (x == null && y == null)
+                return true;
+            if (x != null && y == null)
+                return false;
+            if (x == null)
+                return false;
+
+            var hTitleComparer = HTitleComparer.Instance;
+
+            if (!hTitleComparer.Equals(x, y))
+                return false;
+
+            if (x.Value != null || y.Value != null)
+            {
+                if (x.Value != null && y.Value != null)
+                {
+                    if (!x.Value.Equals(y.Value))
+                        return false;
+                }
+                else if ((x.Value != null && y.Value == null) || (x.Value == null && y.Value != null))
+                    return false;
+            }
+
+            return true;
+        }
+
+        public override int GetHashCode(HCInfo obj)
+        {
+            return obj.Title.GetHashCode() ^ obj.Value.GetHashCode();
         }
     }
 
@@ -70,12 +135,51 @@ namespace TesseractSharp.Hocr
                     return false;
             }
 
+            if (x.CInfos == null && y.CInfos != null)
+                return false;
+
+            if (x.CInfos != null && y.CInfos == null)
+                return false;
+
+            if (x.CInfos != null && y.CInfos != null)
+            {
+                if (x.CInfos.Length != y.CInfos.Length)
+                    return false;
+
+                var hcInfoComparer = HCInfoComparer.Instance;
+
+                for (var cinfoNum = 0; cinfoNum < x.CInfos.Length; cinfoNum++)
+                {
+                    var xCInfo = x.CInfos[cinfoNum];
+                    var yCInfo = y.CInfos[cinfoNum];
+
+                    if (!hcInfoComparer.Equals(xCInfo, yCInfo))
+                        return false;
+                }
+
+            }
+
+            if (x.Value != null || y.Value != null)
+            {
+                if (x.Value != null && y.Value != null)
+                {
+                    if (!x.Value.Equals(y.Value))
+                        return false;
+                }
+                else if ((x.Value != null && y.Value == null) || (x.Value == null && y.Value != null))
+                    return false;
+            }
+
             return true;
         }
 
         public override int GetHashCode(HWord obj)
         {
-            return obj.Id.GetHashCode() ^ obj.Title.GetHashCode() ^ obj.Lang.GetHashCode() ^ obj.Dir.GetHashCode();
+            return obj.Id.GetHashCode() ^ 
+                   obj.Title.GetHashCode() ^ 
+                   obj.Lang.GetHashCode() ^ 
+                   obj.Dir.GetHashCode() ^
+                   obj.Value.GetHashCode();
         }
     }
 

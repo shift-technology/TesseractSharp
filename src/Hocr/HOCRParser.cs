@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Xml;
@@ -78,7 +79,7 @@ namespace TesseractSharp.Hocr
 
             var areas = node.GetChildNodes().Select(BuildCarea).ToList();
 
-            var page = new HPage ( id, title, areas);
+            var page = new HPage(id, title, areas);
             return page;
         }
 
@@ -97,7 +98,7 @@ namespace TesseractSharp.Hocr
 
             var paragraphs = node.GetChildNodes().Select(BuildPar).ToList();
 
-            var area = new HCarea (id, title, paragraphs );
+            var area = new HCarea(id, title, paragraphs );
             return area;
         }
 
@@ -124,7 +125,7 @@ namespace TesseractSharp.Hocr
             if (node.GetAttribute("dir", out var dirAttr))
                 dir = dirAttr.Value;
 
-            var par = new HPar ( id, title, lang, dir, lines);
+            var par = new HPar(id, title, lang, dir, lines);
 
             return par;
         }
@@ -173,9 +174,38 @@ namespace TesseractSharp.Hocr
             if (node.GetAttribute("dir", out var dirAttr))
                 dir = dirAttr.Value;
 
-            var word = new HWord(id, title, lang, dir, value: node.InnerText);
+            IEnumerable<HCInfo> cinfos = null;
+            var childNodes = node.GetChildNodes().ToList();
+
+            if (childNodes.Any(n => n.Name == "span"
+                                    && n.GetAttribute("class", out var attr)
+                                    && attr.Value.Equals("ocrx_cinfo")))
+            {
+                cinfos = childNodes.Select(BuildCInfo).ToList();
+            }
+
+            var word = new HWord(id, title, lang, dir, value: node.InnerText, hCInfos: cinfos);
 
             return word;
+        }
+
+        private static HCInfo BuildCInfo(XmlNode node)
+        {
+            if (!node.Name.Equals("span"))
+                throw new HOCRException("HWord should be in a span.");
+
+            if (!node.GetAttribute("class", out var classAttr))
+                throw new HOCRException("HObject should contain a class attribute.");
+
+            if (!classAttr.Value.Equals("ocrx_cinfo"))
+                throw new HOCRException($"Invalid class object {classAttr.Value}.");
+
+            if (!node.GetAttribute("title", out var title))
+                throw new HOCRException("HCInfo should contain a title attribute.");
+
+            var cinfo = new HCInfo(title.Value, value: node.InnerText);
+
+            return cinfo;
         }
 
         private static (string, string) GetHObjectAttr(XmlNode node)
@@ -189,8 +219,6 @@ namespace TesseractSharp.Hocr
 
             return (id.Value, title.Value);
         }
-
-
 
         public static HDocument Parse(StreamReader reader)
         {
