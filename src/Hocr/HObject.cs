@@ -64,7 +64,7 @@ namespace TesseractSharp.Hocr
 
                 rawFields[subfields[0]] = string.Join(" ", subfields.Where(((s, i) => i > 0)));
 
-                if (subfields[0].Equals("bbox"))
+                if (subfields[0].Equals("bbox") || subfields[0].Equals("x_bboxes"))
                 {
                     if (subfields.Length != 5)
                         throw new HOCRException($"Invalid title format {value}");
@@ -75,7 +75,7 @@ namespace TesseractSharp.Hocr
                         x1: int.Parse(subfields[3]), 
                         y1: int.Parse(subfields[4]));
                 }
-                else if (subfields[0].Equals("baseline "))
+                else if (subfields[0].Equals("baseline"))
                 {
                     if (subfields.Length != 3)
                         throw new HOCRException($"Invalid title format {value}");
@@ -84,7 +84,7 @@ namespace TesseractSharp.Hocr
                         slope: float.Parse(subfields[1]),
                         constant: int.Parse(subfields[2]));
                 }
-                else if (subfields[0].Equals("x_wconf "))
+                else if (subfields[0].Equals("x_wconf"))
                 {
                     if (subfields.Length != 2)
                         throw new HOCRException($"Invalid title format {value}");
