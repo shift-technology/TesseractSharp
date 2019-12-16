@@ -16,14 +16,14 @@ namespace TesseractSharp.Hocr
 
     public struct Baseline
     {
-        public Baseline(float slope, int constant)
+        public Baseline(float slope, float constant)
         {
             Slope = slope;
             Constant = constant;
         }
 
         public float Slope { get; }
-        public int Constant { get; }
+        public float Constant { get; }
 
     }
     
@@ -82,7 +82,7 @@ namespace TesseractSharp.Hocr
 
                     Baseline = new Baseline(
                         slope: float.Parse(subfields[1]),
-                        constant: int.Parse(subfields[2]));
+                        constant: float.Parse(subfields[2]));
                 }
                 else if (subfields[0].Equals("x_wconf"))
                 {
