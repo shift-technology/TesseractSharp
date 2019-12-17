@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 
 namespace TesseractSharp.Hocr
@@ -81,15 +82,15 @@ namespace TesseractSharp.Hocr
                         throw new HOCRException($"Invalid title format {value}");
 
                     Baseline = new Baseline(
-                        slope: float.Parse(subfields[1]),
-                        constant: float.Parse(subfields[2]));
+                        slope: float.Parse(subfields[1], CultureInfo.InvariantCulture.NumberFormat),
+                        constant: float.Parse(subfields[2], CultureInfo.InvariantCulture.NumberFormat));
                 }
                 else if (subfields[0].Equals("x_wconf"))
                 {
                     if (subfields.Length != 2)
                         throw new HOCRException($"Invalid title format {value}");
 
-                    WConf = new WConf(confidence: float.Parse(subfields[1]));
+                    WConf = new WConf(confidence: float.Parse(subfields[1], CultureInfo.InvariantCulture.NumberFormat));
                 }
             }
 
