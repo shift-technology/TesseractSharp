@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TesseractSharp.Hocr
+namespace TesseractSharpExtensions.Hocr
 {
     public class HOCRException : Exception
     {

@@ -1,10 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Xml;
 
-namespace TesseractSharp.Hocr
+namespace TesseractSharpExtensions.Hocr
 {
     // SEE http://kba.cloud/hocr-spec/1.2/
     public static class HOCRParser
