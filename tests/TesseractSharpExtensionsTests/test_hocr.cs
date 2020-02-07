@@ -2,9 +2,10 @@
 using System.Reflection;
 using System.Text;
 using NUnit.Framework;
-using TesseractSharp.Hocr;
+using TesseractSharpExtensions.Hocr;
+using TesseractSharpTests;
 
-namespace TesseractSharpTests
+namespace TesseractSharpExtensionsTests
 {
     [TestFixture]
     internal class test_hocr : TestBase
