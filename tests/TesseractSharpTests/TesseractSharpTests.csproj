@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\TesseractSharp.csproj" />
+    <ProjectReference Include="..\..\src\TesseractSharp\TesseractSharp.csproj" />
   </ItemGroup>
 
   <ItemGroup>

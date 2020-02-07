@@ -1,15 +1,14 @@
 ﻿using System.IO;
 using System.Reflection;
-using Common.Logging;
 using NLog;
 using NUnit.Framework;
 
 // DO NOT USE IN PRODUCTION
 using iText.Kernel.Pdf;
 using iText.Kernel.Utils;
-using TesseractSharp;
-
 // DO NOT USE IN PRODUCTION
+
+using TesseractSharp;
 
 namespace TesseractSharpTests
 {

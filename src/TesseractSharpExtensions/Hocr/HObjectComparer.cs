@@ -1,4 +1,6 @@
-﻿namespace TesseractSharpExtensions.Hocr
+﻿using System.Collections.Generic;
+
+namespace TesseractSharpExtensions.Hocr
 {
     public class HTitleComparer : EqualityComparer<HTitle>
     {

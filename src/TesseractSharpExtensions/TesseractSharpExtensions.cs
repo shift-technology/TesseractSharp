@@ -7,7 +7,7 @@ using TesseractSharp;
 
 namespace TesseractSharpExtensions
 {
-    public static class TesseractSharpExtensions
+    public static class TesseractExtension
     {
         public static Stream ImageToPdf(
             Bitmap bitmap,
