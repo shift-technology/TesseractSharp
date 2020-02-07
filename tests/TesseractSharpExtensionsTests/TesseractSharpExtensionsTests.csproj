@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="itext7" Version="7.1.8" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.2.0" />
+    <PackageReference Include="NUnit" Version="3.12.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.12.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\TesseractSharp.csproj" />
+    <ProjectReference Include="..\..\src\TesseractSharpExtensions\TesseractSharpExtensions.csproj" />
+    <ProjectReference Include="..\TesseractSharpTests\TesseractSharpTests.csproj" />
+  </ItemGroup>
+
+</Project>

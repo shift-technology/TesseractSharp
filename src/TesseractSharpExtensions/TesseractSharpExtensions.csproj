@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <Company>Shift-technology</Company>
+    <PackageProjectUrl>https://github.com/shift-technology/TesseractSharp</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/shift-technology/TesseractSharp/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageIconUrl>https://avatars1.githubusercontent.com/u/7818092?s=64</PackageIconUrl>
+    <Authors>Core team</Authors>
+    <Description>Extensions for TesseractSharp</Description>
+    <Version>1.0.0</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NLog" Version="4.6.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TesseractSharp\TesseractSharp.csproj" />
+  </ItemGroup>
+
+</Project>
