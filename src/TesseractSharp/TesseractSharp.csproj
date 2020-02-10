@@ -1,14 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net472</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <Company>Shift-technology</Company>
     <PackageProjectUrl>https://github.com/shift-technology/TesseractSharp</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/shift-technology/TesseractSharp/blob/master/LICENSE</PackageLicenseUrl>
     <PackageIconUrl>https://avatars1.githubusercontent.com/u/7818092?s=64</PackageIconUrl>
     <Authors>Core team</Authors>
     <Description>.NET Wrapper for tessaract v5.0.0.20190623</Description>
-    <Version>1.1.6</Version>
+    <Version>1.2.0</Version>
   </PropertyGroup>
     
    <PropertyGroup>
@@ -32,7 +32,7 @@
   </Target>
 
   <ItemGroup>
-    <PackageReference Include="NLog" Version="4.6.6" />
+    <PackageReference Include="NLog" Version="4.6.7" />
   </ItemGroup>
 
 </Project>

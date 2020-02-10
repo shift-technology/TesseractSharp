@@ -1,9 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp2.2;net472</TargetFrameworks>
+    <TargetFrameworks>net472;netcoreapp2.2</TargetFrameworks>
   </PropertyGroup>
-
+  
   <ItemGroup>
     <PackageReference Include="itext7" Version="7.1.8" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.2.0" />
@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\TesseractSharp\TesseractSharp.csproj" />
+    <ProjectReference Include="..\..\src\TesseractSharpExtensions\TesseractSharpExtensions.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -33,6 +34,12 @@
     </None>
     <None Update="samples\fakeidcard.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="samples\sample.hocr">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="samples\sample2.hocr">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 

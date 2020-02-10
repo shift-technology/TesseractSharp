@@ -430,4 +430,4 @@ MigrationBackup/
 .vscode/
 
 # Resource file, generate at each build
-src/.temp/
+.temp/
