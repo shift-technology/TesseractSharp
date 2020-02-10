@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Company>Shift-technology</Company>
+    <PackageProjectUrl>https://github.com/shift-technology/TesseractSharp</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/shift-technology/TesseractSharp/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageIconUrl>https://avatars1.githubusercontent.com/u/7818092?s=64</PackageIconUrl>
+    <Authors>Core team</Authors>
+    <Description>.NET Wrapper for tessaract v5.0.0.20190623</Description>
+    <Version>1.2.0</Version>
+  </PropertyGroup>
+    
+   <PropertyGroup>
+       <TempDirectory>.temp</TempDirectory>
+   </PropertyGroup>
+  
+  <Target Name="CreateTempDirectory" BeforeTargets="PrepareForBuild">
+        <MakeDir Directories="$(TempDirectory)" />
+   </Target>
+
+  <Target Name="ZipOutputPath" AfterTargets="CreateTempDirectory">
+    <ZipDirectory SourceDirectory="$(MSBuildProjectDirectory)\TesseractSharpResources" DestinationFile="$(TempDirectory)\TesseractSharpResources.zip" Overwrite="true" />
+  </Target>
+
+  <Target Name="EmbeddedResources" AfterTargets="ZipOutputPath">
+    <ItemGroup>
+      <EmbeddedResource Include="$(TempDirectory)\TesseractSharpResources.zip">
+        <LogicalName>TesseractSharpResources.zip</LogicalName>
+      </EmbeddedResource>
+    </ItemGroup>
+  </Target>
+
+  <ItemGroup>
+    <PackageReference Include="NLog" Version="4.6.7" />
+  </ItemGroup>
+
+</Project>

@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net472</TargetFramework>
+    <TargetFrameworks>netcoreapp2.2;net472</TargetFrameworks>
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\TesseractSharp.csproj" />
+    <ProjectReference Include="..\..\src\TesseractSharp\TesseractSharp.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -33,12 +33,6 @@
     </None>
     <None Update="samples\fakeidcard.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="samples\sample.hocr">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="samples\sample2.hocr">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 

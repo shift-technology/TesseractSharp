@@ -3,9 +3,20 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.705
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TesseractSharp", "src\TesseractSharp.csproj", "{3AE8D014-E619-49F0-8086-259A0A57B0D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TesseractSharp", "src\TesseractSharp\TesseractSharp.csproj", "{3AE8D014-E619-49F0-8086-259A0A57B0D2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TesseractSharpExtensions", "src\TesseractSharpExtensions\TesseractSharpExtensions.csproj", "{3CB7A15B-2982-4068-B784-22DE3E982327}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{D041C1D1-23C9-46DA-9E0F-EA66C5AC671F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TesseractSharpTests", "tests\TesseractSharpTests\TesseractSharpTests.csproj", "{5F3B39CA-8FD5-4039-AB89-724A5DAA7B2E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TesseractSharpExtensionsTests", "tests\TesseractSharpExtensionsTests\TesseractSharpExtensionsTests.csproj", "{FE194887-9F84-433E-BF65-9DC1698F58F3}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3AE8D014-E619-49F0-8086-259A0A57B0D2} = {3AE8D014-E619-49F0-8086-259A0A57B0D2}
+		{3CB7A15B-2982-4068-B784-22DE3E982327} = {3CB7A15B-2982-4068-B784-22DE3E982327}
+		{5F3B39CA-8FD5-4039-AB89-724A5DAA7B2E} = {5F3B39CA-8FD5-4039-AB89-724A5DAA7B2E}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,13 +28,25 @@ Global
 		{3AE8D014-E619-49F0-8086-259A0A57B0D2}.Debug|Any CPU.Build.0 = Release|Any CPU
 		{3AE8D014-E619-49F0-8086-259A0A57B0D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3AE8D014-E619-49F0-8086-259A0A57B0D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CB7A15B-2982-4068-B784-22DE3E982327}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CB7A15B-2982-4068-B784-22DE3E982327}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CB7A15B-2982-4068-B784-22DE3E982327}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CB7A15B-2982-4068-B784-22DE3E982327}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5F3B39CA-8FD5-4039-AB89-724A5DAA7B2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5F3B39CA-8FD5-4039-AB89-724A5DAA7B2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F3B39CA-8FD5-4039-AB89-724A5DAA7B2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F3B39CA-8FD5-4039-AB89-724A5DAA7B2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE194887-9F84-433E-BF65-9DC1698F58F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE194887-9F84-433E-BF65-9DC1698F58F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE194887-9F84-433E-BF65-9DC1698F58F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE194887-9F84-433E-BF65-9DC1698F58F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5F3B39CA-8FD5-4039-AB89-724A5DAA7B2E} = {D041C1D1-23C9-46DA-9E0F-EA66C5AC671F}
+		{FE194887-9F84-433E-BF65-9DC1698F58F3} = {D041C1D1-23C9-46DA-9E0F-EA66C5AC671F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {48581AE8-24E6-4788-BA8C-2A63C0DED5FA}
