@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <meta name='ocr-system' content='tesseract 5.0.0-alpha' />
+    <meta name='ocr-capabilities' content='ocr_page ocr_carea ocr_par ocr_line ocrx_word ocrp_wconf'/>
+  </head>
+  <body>
+    <div class='ocr_page' id='page_1' title='image "C:\Git\TesseractSharp\tests\TesseractSharpTests\bin\Debug\net472\samples\fakeidcard.bmp"; bbox 0 0 600 350; ppageno 0'>
+      <div class='ocr_carea' id='block_1_1' title="bbox 0 0 600 72">
+        <p class='ocr_par' id='par_1_1' lang='eng' title="bbox 0 0 600 72">
+          <span class='ocr_line' id='line_1_1' title="bbox 0 0 600 72; baseline 0 0; x_size 97.333336; x_descenders 24.333334; x_ascenders 24.333334">
+            <span class='ocrx_word' id='word_1_1' title='bbox 0 0 600 72; x_wconf 95'>
+              <span class='ocrx_cinfo' title='x_bboxes 0 57 196 72; x_conf 95'>A</span>
+              <span class='ocrx_cinfo' title='x_bboxes 0 0 600 57; x_conf 95'>B</span>
+              <span class='ocrx_cinfo' title='x_bboxes 277 57 600 72; x_conf 95'>C</span>
+            </span>
+          </span>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
