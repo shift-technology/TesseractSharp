@@ -35,6 +35,9 @@ namespace TesseractSharp
         MathAndEquationDetectionModule = 9,
 
         [Description("osd")]
-        OrientationAndScriptDetectionModule = 10
+        OrientationAndScriptDetectionModule = 10,
+
+        [Description("rus")]
+        Russian = 11
     }
 }
