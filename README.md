@@ -2,7 +2,7 @@
 
 [![GitHub license](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 
-A C# wrapper for Tesseract 5
+A C# wrapper for Tesseract 5, last update 21 08 2021
 
 
 ## Use TesseractSharp !
