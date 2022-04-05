@@ -52,8 +52,6 @@ namespace TesseractSharp
             if (result.ExitCode != 0) // POSIX
                 Logger.Error(result.Error);
             
-            Logger.Debug(result.Output);
-
             Result = result;
         }
 
