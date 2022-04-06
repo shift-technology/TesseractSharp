@@ -44,16 +44,12 @@ namespace TesseractSharp
 
             if (!LibraryHelper.Instance.TryGetBinary(TesseractExe, out var tesseractCmd))
                 throw new InvalidOperationException($"'{TesseractExe}' command not found.");
-
-            Logger.Info($"Call '{tesseractCmd} {string.Join(" ", args)}'");
-
+            
             var result = ProcessHelper.RunProcess(tesseractCmd, args, environmentVariables:  environmentVariables);
 
             if (result.ExitCode != 0) // POSIX
                 Logger.Error(result.Error);
             
-            Logger.Debug(result.Output);
-
             Result = result;
         }
 
